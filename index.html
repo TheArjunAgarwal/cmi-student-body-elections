@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Election</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <h1>Campus Election</h1>
+
+  <section id="login" class="screen">
+    <p class="note">Use the email and 6-digit code we sent you.</p>
+    <form id="loginForm" class="box">
+      <label>Email <input id="email" type="email" required autocomplete="email"></label>
+      <label>Voter code <input id="code" inputmode="numeric" pattern="\d{6}" maxlength="6" required autocomplete="off"></label>
+      <button class="btn">Start voting</button>
+      <p id="loginMsg" class="msg" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="ballot" class="screen" hidden>
+    <p class="note"><strong id="batchName"></strong>Tap the candidates you approve, in order of preference. Your 1st pick goes on top. Skip anyone you don't approve of.</p>
+    <div class="cols">
+      <div class="box"><h2>Candidates</h2><ul id="pool" class="list"></ul></div>
+      <div class="box"><h2>My ranking</h2><ol id="ranked" class="list"></ol>
+        <p id="empty" class="hint">Nothing yet. Tap a name to add it.</p></div>
+    </div>
+    <button id="submit" class="btn" disabled>Cast my vote</button>
+    <p id="ballotMsg" class="msg" role="alert"></p>
+  </section>
+
+  <section id="done" class="screen" hidden>
+    <div class="box"><h2>Vote cast ✓</h2>
+      <p>Thank you. Your ballot is saved without your name or email. Your code can't be used again.</p></div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

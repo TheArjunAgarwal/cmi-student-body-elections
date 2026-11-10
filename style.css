@@ -1,0 +1,35 @@
+:root{--paper:#fdfcf8;--ink:#2b3a67;--line:#cfe0ef;--margin:#e7a0a0;--muted:#6b7390;--ok:#2f7d4f;--err:#b3362f}
+*{box-sizing:border-box}
+body{margin:0;background:#f6f5f0;color:var(--ink);font:22px/1.4 "Patrick Hand",cursive}
+.page{max-width:900px;margin:0 auto;padding:24px 16px 64px}
+h1,h2{font-family:Caveat,cursive;margin:.2em 0}
+h1{font-size:3.4rem;text-align:center;transform:rotate(-1deg)}
+h2{font-size:2rem}
+.note{text-align:center;color:var(--muted);max-width:60ch;margin:0 auto 20px}
+.box{background:var(--paper);border:2px solid var(--ink);border-radius:6px 10px 7px 12px;padding:20px 20px 20px 56px;
+  box-shadow:3px 4px 0 rgba(43,58,103,.15);
+  background-image:linear-gradient(90deg,transparent 40px,var(--margin) 40px,var(--margin) 42px,transparent 42px),
+    repeating-linear-gradient(transparent 0 30px,var(--line) 30px 31px);}
+#login .box{max-width:420px;margin:0 auto}
+label{display:block;margin-bottom:12px}
+input{display:block;width:100%;font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2px dashed var(--ink);padding:4px 2px;outline:0}
+input:focus{border-bottom-style:solid;background:rgba(255,235,140,.35)}
+#code{letter-spacing:.4em;font-size:1.5rem}
+.btn{font:700 1.5rem Caveat,cursive;color:var(--ink);background:#fff3a8;border:2px solid var(--ink);border-radius:8px 4px 9px 5px;padding:6px 22px;cursor:pointer;box-shadow:2px 3px 0 var(--ink);margin-top:8px}
+.btn:hover:not(:disabled){transform:translate(1px,1px);box-shadow:1px 2px 0 var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,li button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+#ballot>.btn{display:block;margin:24px auto 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:720px){.cols{grid-template-columns:1fr}}
+.list{list-style:none;margin:0;padding:0;counter-reset:r}
+.list li{display:flex;align-items:center;gap:8px;min-height:31px;line-height:31px}
+.list .name{flex:1;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0}
+#pool .name:hover{text-decoration:underline wavy}
+#pool small,.list small{display:block;line-height:1.1;color:var(--muted);font-size:.8em}
+#ranked li::before{counter-increment:r;content:counter(r) ".";font:700 1.6rem Caveat,cursive;width:1.6em}
+li button.mini{background:none;border:1px solid var(--ink);border-radius:4px;color:var(--ink);font:inherit;width:28px;height:26px;line-height:1;cursor:pointer}
+.hint{color:var(--muted)}
+.msg{min-height:1.4em;margin:8px 0 0;text-align:center}
+.msg.err{color:var(--err)}
+[hidden]{display:none!important}
